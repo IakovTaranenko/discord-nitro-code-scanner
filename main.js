@@ -1,21 +1,21 @@
-const { Client } = require('discord.js');
+const Discord = require('discord.js');
 const ReadLine = require('readline');
 const Chalk = require('chalk');
 const Axios = require('axios').default;
 
-const client = new Client();
+const Client = new Discord.Client();
 
-const Console = ReadLine.createInterface({
+const ReadLineInput = ReadLine.createInterface({
     input: process.stdin, 
     output: process.stdout
 })
 
-Console.question('Token >> ', Token => {
-    client.on('ready', () => {
+ReadLineInput.question('Token >> ', Token => {
+    Client.on('ready', () => {
         console.log(`${Chalk.greenBright('[RUNNING]')} - Scanner has started running.`);
     });
 
-    client.on('message', Message => {
+    Client.on('message', Message => {
         if(Message.content.includes('discord.gift') || Message.content.includes('discordapp.com/gifts/')) {
             console.log(`${Chalk.yellow('[FOUND]')} - Found a message containing discord.gift!      Server: ${Message.guild.name}, User: ${Message.author.username}, Message: ${Message}`);
             const MatchCase = /(discord\.(gift)|discordapp\.com\/gift)\/.+[a-z]/
@@ -35,5 +35,7 @@ Console.question('Token >> ', Token => {
         }
     });
 
-    client.login(Token)
+    Client.login(Token)
+    .then(() => console.log(`${Chalk.greenBright('[TOKEN]')} - Logged in successfully`))
+    .catch(err => console.log(`${Chalk.red('[TOKEN]')} - ${err}`))
 })
