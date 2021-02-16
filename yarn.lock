@@ -69,11 +69,6 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-console-title@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/console-title/-/console-title-1.1.0.tgz#393b6c9f18961cafe5144b4fbd15e03eee32ddad"
-  integrity sha512-ufN5K3RCOz3xVQTmfgTFer9Nq09vGiiOCP26sliy2f0/H0hF0aFGl8XaQ0EFI6LRZFvHlovZ6ynMkXxnr1VIWg==
-
 delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"

@@ -1,4 +1,17 @@
 {
+  "name": "discord-nitro-code-scanner",
+  "version": "1.0.0",
+  "description": "scans all servers for discord nitro codes and tries to redeem them automatically",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IakovTaranenko/discord-nitro-code-scanner"
+  },
+  "author": "IakovTaranenko",
+  "license": "MIT",
   "dependencies": {
     "axios": "^0.21.1",
     "chalk": "^4.1.0",
