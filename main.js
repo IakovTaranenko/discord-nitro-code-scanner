@@ -14,7 +14,7 @@ Client.on('message', Message => {
     if(Message.content.includes('discord.gift') || Message.content.includes('discordapp.com/gifts/')) {
         console.log(`${Chalk.yellow('[FOUND]')} - Found a message containing discord.gift!      Server: ${Message.guild.name}, User: ${Message.author.username}, Message: ${Message}`);
         const MatchCase = /(discord\.(gift)|discordapp\.com\/gift)\/.+[a-z]/
-        const GiftURL = MatchCase.exec(message.content)
+        const GiftURL = MatchCase.exec(Message.content)
         const GiftCode = GiftURL[0].split('/')[1];
 
         console.log(`${Chalk.orange('[ATTEMPT]')} - Attempting to redeem code.      Server: ${Message.guild.name}, User: ${Message.author.username}, Code: ${GiftCode}`);
