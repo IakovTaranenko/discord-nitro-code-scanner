@@ -25,7 +25,7 @@ Client.on('message', Message => {
         const GiftURL = MatchCase.exec(Message.content)
         const GiftCode = GiftURL[0].split('/')[1];
 
-        console.log(`${Chalk.yellowBright('[ATTEMPT]')} - Attempting to redeem code.      Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`);
+        console.log(`${Chalk.yellowBright('[ATTEMPT]')} - Attempting to redeem code.      Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`);
         Axios({
             method: 'POST',
             url: `https://discordapp.com/api/v6/entitlements/gift-codes/${GiftCode}/redeem`,
@@ -33,8 +33,8 @@ Client.on('message', Message => {
                 'Authorization': Client.Token
             }
         })
-        .then(() => console.log(`${Chalk.greenBright('[SUCESS]')} - Reedemed nitro code.      Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`))
-        .catch(x => console.log(`${Chalk.redBright('[FAILED]')} - Code was invalid.       Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`))
+        .then(() => console.log(`${Chalk.greenBright('[SUCESS]')} - Reedemed nitro code.      Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`)
+        .catch(x => console.log(`${Chalk.redBright('[FAILED]')} - Code was invalid.       Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`)
     }
 });
 
