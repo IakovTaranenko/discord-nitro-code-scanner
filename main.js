@@ -17,7 +17,7 @@ Client.on('message', Message => {
         const GiftURL = MatchCase.exec(Message.content)
         const GiftCode = GiftURL[0].split('/')[1];
 
-        console.log(`${Chalk.orange('[ATTEMPT]')} - Attempting to redeem code.      Server: ${Message.guild.name}, User: ${Message.author.username}, Code: ${GiftCode}`);
+        console.log(`${Chalk.yellow('[ATTEMPT]')} - Attempting to redeem code.      Server: ${Message.guild.name}, User: ${Message.author.username}, Code: ${GiftCode}`);
         Axios({
             method: 'POST',
             url: `https://discordapp.com/api/v6/entitlements/gift-codes/${GiftCode}/redeem`,
