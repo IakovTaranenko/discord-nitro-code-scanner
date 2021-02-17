@@ -12,12 +12,20 @@ Client.on('ready', () => {
 
 Client.on('message', Message => {
     if(Message.content.includes('discord.gift') || Message.content.includes('discordapp.com/gifts/')) {
-        console.log(`${Chalk.yellow('[FOUND]')} - Found a message containing discord.gift!      Server: ${Message.guild.name}, User: ${Message.author.username}, Message: ${Message}`);
+        var GuildName;
+
+        if (Message.guild == null) {
+            GuildName = (`${Message.author.username}'s PM`);
+        } else {
+            GuildName = Message.guild.name;
+        }
+
+        console.log(`${Chalk.yellowBright('[FOUND]')} - Found a message containing discord.gift!      Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`);
         const MatchCase = /(discord\.(gift)|discordapp\.com\/gift)\/.+[a-z]/
         const GiftURL = MatchCase.exec(Message.content)
         const GiftCode = GiftURL[0].split('/')[1];
 
-        console.log(`${Chalk.yellow('[ATTEMPT]')} - Attempting to redeem code.      Server: ${Message.guild.name}, User: ${Message.author.username}, Code: ${GiftCode}`);
+        console.log(`${Chalk.yellowBright('[ATTEMPT]')} - Attempting to redeem code.      Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`);
         Axios({
             method: 'POST',
             url: `https://discordapp.com/api/v6/entitlements/gift-codes/${GiftCode}/redeem`,
@@ -25,11 +33,11 @@ Client.on('message', Message => {
                 'Authorization': Client.Token
             }
         })
-        .then(() => console.log(`${Chalk.green('[SUCESS]')} - Reedemed nitro code.      Server: ${Message.guild.name}, User: ${Message.author.username}, Code: ${GiftCode}`))
-        .catch(x => console.log(`${Chalk.red('[FAILED]')} - Code was invalid.       Server: ${Message.guild.name}, User: ${Message.author.username}, Code: ${GiftCode}`))
+        .then(() => console.log(`${Chalk.greenBright('[SUCESS]')} - Reedemed nitro code.      Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`))
+        .catch(x => console.log(`${Chalk.redBright('[FAILED]')} - Code was invalid.       Server: ${GuildName} | User: ${Message.author.username} | Message: ${Message}`))
     }
 });
 
 Client.login(Token)
 .then(() => console.log(`${Chalk.greenBright('[TOKEN]')} - Logged in successfully`))
-.catch(err => console.log(`${Chalk.red('[TOKEN]')} - ${err}`))
+.catch(err => console.log(`${Chalk.redBright('[TOKEN]')} - ${err}`))
