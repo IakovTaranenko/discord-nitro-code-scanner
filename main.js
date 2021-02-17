@@ -33,8 +33,8 @@ Client.on('message', Message => {
                 'Authorization': Client.Token
             }
         })
-        .then(() => console.log(`${Chalk.greenBright('[SUCESS]')} - Reedemed nitro code.      Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`)
-        .catch(x => console.log(`${Chalk.redBright('[FAILED]')} - Code was invalid.       Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`)
+        .then(() => console.log(`${Chalk.greenBright('[SUCESS]')} - Reedemed nitro code.      Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`))
+        .catch(x => console.log(`${Chalk.redBright('[FAILED]')} - Code was invalid.       Server: ${GuildName} | User: ${Message.author.username} | Code: ${GiftCode}`))
     }
 });
 
