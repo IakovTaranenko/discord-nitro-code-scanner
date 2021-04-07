@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const Discord = require('discord.js-light');
 const PromptSync = require('prompt-sync')();
 const Chalk = require('chalk');
 const Axios = require('axios').default;
