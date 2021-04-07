@@ -11,6 +11,7 @@ Scans all servers under a user for Discord Nitro codes and automatically attempt
 6. Enjoy
 
 ## Additional notes
+- Do NOT remove `discord.js` in `node_modules`, it's a special patch of v12.5.3 I made to bypass self-botting coutermeasures
 - I suggest you add some kind of token storage variable since entering it every time you run it is annoying
 - You can review the source code and modify it on your own, just dont change the dependencies in package.json as the entire script runs on specific dependency versions
 - I've tested this script with multiple accounts all with max guilds, I've ran into minimal errors but nothing too major
