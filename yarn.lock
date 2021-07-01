@@ -98,7 +98,7 @@ discord.js@12.5.3:
     prism-media "^1.2.9"
     setimmediate "^1.0.5"
     tweetnacl "^1.0.3"
-    ws "^7.4.4"
+    ws "^7.4.6"
 
 event-target-shim@^5.0.0:
   version "5.0.1"
